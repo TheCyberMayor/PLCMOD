@@ -7,7 +7,7 @@ uvicorn
 flask
 python-dotenv
 pydantic
-yaml
+PyYAML
 loguru
 schedule
 
