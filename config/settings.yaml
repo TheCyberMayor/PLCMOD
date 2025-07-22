@@ -1,0 +1,109 @@
+# ICS Cybersecurity System Configuration
+
+# Network monitoring configuration
+network:
+  interface: "eth0"
+  packet_count: 1000
+  timeout: 30
+  protocols:
+    - "modbus"
+    - "ethernet/ip"
+    - "dnp3"
+    - "bacnet"
+    - "s7"
+    - "opc_ua"
+  log_sources:
+    - "/var/log/syslog"
+    - "/var/log/auth.log"
+  log_interval: 60
+  mitre_attack_db: "data/mitre_attack_ics.json"
+  authorized_ips:
+    - "192.168.1.100"
+    - "192.168.1.101"
+    - "192.168.1.102"
+
+# Graph analysis configuration
+graph:
+  use_neo4j: true
+  neo4j_uri: "bolt://localhost:7687"
+  neo4j_user: "neo4j"
+  neo4j_password: "password"
+  centrality_metrics:
+    - "betweenness"
+    - "closeness"
+    - "eigenvector"
+    - "pagerank"
+  max_path_length: 10
+  graph_layout: "spring"
+  node_size: 20
+  edge_width: 2
+
+# Machine learning configuration
+ml_models:
+  models:
+    - "random_forest"
+    - "svm"
+    - "xgboost"
+  test_size: 0.2
+  random_state: 42
+  feature_window: 60
+  anomaly_threshold: 0.8
+  model_path: "models/"
+  retrain_interval: 3600
+
+# Threat mitigation configuration
+mitigation:
+  response_levels:
+    low:
+      - "log_alert"
+      - "increase_monitoring"
+    medium:
+      - "block_ip"
+      - "isolate_device"
+      - "update_rules"
+    high:
+      - "emergency_shutdown"
+      - "full_lockdown"
+      - "alert_authorities"
+  rl_algorithm: "q_learning"
+  learning_rate: 0.1
+  discount_factor: 0.9
+  auto_response: true
+  manual_approval: false
+
+# API configuration
+api:
+  host: "0.0.0.0"
+  port: 8000
+  api_key_header: "X-API-Key"
+  enable_auth: true
+  rate_limit: 100
+  cors_origins:
+    - "*"
+
+# Dashboard configuration
+dashboard:
+  host: "0.0.0.0"
+  port: 8050
+  theme: "dark"
+  refresh_interval: 5000
+  max_data_points: 1000
+  chart_height: 400
+
+# Validation configuration
+validation:
+  testbeds:
+    - "minicps"
+    - "digital_twin"
+  metrics:
+    - "accuracy"
+    - "precision"
+    - "recall"
+    - "f1"
+    - "mcc"
+  test_duration: 3600
+  attack_scenarios:
+    - "reconnaissance"
+    - "initial_access"
+    - "execution"
+    - "data_exfiltration" 

@@ -1,0 +1,406 @@
+# Core dependencies
+numpy==1.24.3
+pandas==2.0.3
+scikit-learn==1.3.0
+xgboost==1.7.6
+tensorflow==2.13.0
+torch==2.0.1
+
+# Graph theory and network analysis
+networkx==3.1
+matplotlib==3.7.2
+seaborn==0.12.2
+plotly==5.15.0
+
+# Web framework and API
+flask==2.2.5
+fastapi==0.100.1
+uvicorn==0.23.2
+requests==2.31.0
+
+# Database and data processing
+neo4j==5.11.0
+elasticsearch==8.9.0
+pymongo==4.4.1
+
+# Network analysis and packet capture
+scapy==2.5.0
+pyshark==0.6.0
+
+# Visualization and dashboard
+dash==2.11.1
+dash-bootstrap-components==1.4.1
+bokeh==3.2.2
+
+# Security and cryptography
+cryptography==41.0.3
+pycryptodome==3.18.0
+
+# Utilities
+python-dotenv==1.0.0
+pydantic==1.10.12
+loguru==0.7.0
+schedule==1.2.0
+
+# Testing
+pytest==7.4.0
+pytest-cov==4.1.0
+
+## 🚀 Windows Server Deployment Options
+
+### Option 1: Automated Deployment (Easiest)
+
+1. **Download the deployment files** to your Windows server
+2. **Run as Administrator**:
+```cmd
+windows_server_setup.bat install
+```
+
+### Option 2: Python Script Deployment
+
+1. **Run as Administrator**:
+```cmd
+python deploy_windows_server.py
+```
+
+## 📋 What the Deployment Does
+
+The deployment automatically handles:
+
+### ✅ **System Installation**
+- Installs Python dependencies
+- Creates virtual environment
+- Copies all system files to `C:\ICS-Cybersecurity`
+- Initializes the database and sample data
+
+### ✅ **Windows Service Setup**
+- Creates a Windows service named `ICSCybersecurity`
+- Configures auto-start on boot
+- Sets up proper service description
+
+### ✅ **Firewall Configuration**
+- Opens port 8000 for API
+- Opens port 8050 for Dashboard
+- Configures network monitoring rules
+
+### ✅ **Management Scripts**
+- `start_service.bat` - Start the system
+- `stop_service.bat` - Stop the system
+- `service_status.bat` - Check status
+- `uninstall.bat` - Remove everything
+
+### ✅ **Desktop Shortcuts**
+- Creates shortcuts for API and Dashboard
+- Easy access from desktop
+
+## 🎯 Quick Management Commands
+
+### Start the System
+```cmd
+windows_server_setup.bat start
+```
+
+### Stop the System
+```cmd
+windows_server_setup.bat stop
+```
+
+### Check Status
+```cmd
+windows_server_setup.bat status
+```
+
+### Run Tests
+```cmd
+windows_server_setup.bat test
+```
+
+### Uninstall
+```cmd
+windows_server_setup.bat uninstall
+```
+
+##  Access Your System
+
+After deployment, access your ICS system at:
+
+- **API**: http://localhost:8000
+- **Dashboard**: http://localhost:8050
+- **API Key**: `test-api-key-123`
+
+## 🔧 Configuration for Production
+
+### Change API Key (Important!)
+Edit `C:\ICS-Cybersecurity\config\settings.yaml`:
+```yaml
+api:
+  api_key: "your-secure-production-key"
+```
+
+### Configure Network Interface
+```yaml
+network:
+  interface: "Your-Network-Interface-Name"
+  capture_mode: "live"  # or "simulation"
+```
+
+### Set External Access
+To access from other machines:
+```yaml
+api:
+  host: "0.0.0.0"  # Allow external connections
+  port: 8000
+
+dashboard:
+  host: "0.0.0.0"  # Allow external connections
+  port: 8050
+```
+
+## 🔒 Security Considerations
+
+### Firewall Rules
+The deployment automatically creates:
+- Port 8000 (API) - Inbound TCP
+- Port 8050 (Dashboard) - Inbound TCP
+- Network monitoring permissions
+
+### Windows Defender
+- Add exclusions for the installation directory
+- Allow Python processes for network monitoring
+
+### Network Security
+- Use VPN for remote access
+- Implement proper authentication
+- Consider SSL/TLS certificates
+
+## 📊 Monitoring and Maintenance
+
+### Log Files
+Located in `C:\ICS-Cybersecurity\logs\`:
+- `system.log` - System events
+- `api.log` - API requests
+- `network.log` - Network monitoring
+- `threats.log` - Threat detection
+
+### Windows Event Log
+- Service logs to Windows Event Viewer
+- Check Application logs for errors
+
+### Performance Monitoring
+```cmd
+# Check service status
+sc query ICSCybersecurity
+
+# Monitor resource usage
+tasklist /FI "IMAGENAME eq python.exe"
+```
+
+## 🔧 Troubleshooting
+
+### Service Won't Start
+1. Check Windows Event Viewer
+2. Verify Python installation
+3. Run manual test: `C:\ICS-Cybersecurity\venv\Scripts\python.exe main.py`
+
+### API Not Responding
+1. Check service status
+2. Verify firewall rules
+3. Test: `curl http://localhost:8000/health`
+
+### Network Monitoring Issues
+1. Run as Administrator
+2. Check interface name: `netsh interface show interface`
+3. Verify Windows Defender settings
+
+## 🎯 Production Checklist
+
+- [ ] Change default API key
+- [ ] Configure SSL/TLS certificates
+- [ ] Set up proper network interface
+- [ ] Configure backup strategy
+- [ ] Set up monitoring and alerting
+- [ ] Test failover procedures
+- [ ] Document network topology
+
+## 📞 Support
+
+The deployment creates comprehensive documentation at:
+- `C:\ICS-Cybersecurity\DEPLOYMENT_GUIDE.md`
+- Detailed troubleshooting guide
+- Configuration examples
+- Integration tips
+
+The automated deployment handles all the complexity, making it easy to get your ICS cybersecurity system running on Windows Server quickly and reliably!
+
+---
+
+# 🚀 ICS Cybersecurity System: AWS Linux EC2 Deployment Guide
+
+## 1. **Launch an EC2 Linux Instance**
+
+- **AMI**: Ubuntu 22.04 LTS (recommended) or Ubuntu 20.04 LTS
+- **Instance type**: t3.medium or larger
+- **Storage**: 20GB+ EBS
+- **Security Group**:
+  - Allow SSH (port 22) from your IP
+  - Allow TCP 8000 (API) and 8050 (Dashboard) from trusted IPs
+
+---
+
+## 2. **Connect to Your Instance**
+
+```bash
+ssh -i /path/to/your-key.pem ubuntu@<EC2-Public-IP>
+```
+
+---
+
+## 3. **Install System Dependencies**
+
+```bash
+# Update and install essentials
+sudo apt update && sudo apt upgrade -y
+sudo apt install -y python3 python3-venv python3-pip git curl
+```
+
+---
+
+## 4. **Copy Your Project Files to the Instance**
+
+- Use `scp`, `rsync`, or upload to GitHub and clone:
+```bash
+# Example using scp from your local machine
+scp -i /path/to/your-key.pem -r /path/to/ICS ubuntu@<EC2-Public-IP>:~/
+```
+or
+```bash
+# Example using git (if your code is in a repo)
+git clone https://github.com/yourusername/ICS.git
+```
+
+---
+
+## 5. **Set Up the Python Environment**
+
+```bash
+cd ~/ICS
+python3 -m venv venv
+source venv/bin/activate
+pip install --upgrade pip
+pip install -r requirements.txt
+```
+
+---
+
+## 6. **Initialize the System**
+
+```bash
+python scripts/init_database.py
+```
+
+---
+
+## 7. **Run the System**
+
+**Option 1: Run in foreground (for testing)**
+```bash
+python main.py
+```
+
+**Option 2: Run in background (production, recommended)**
+```bash
+nohup python main.py > ics.log 2>&1 &
+```
+
+---
+
+## 8. **Access the System**
+
+- **API**: http://<EC2-Public-IP>:8000
+- **Dashboard**: http://<EC2-Public-IP>:8050
+
+---
+
+## 9. **(Optional) Set Up as a Systemd Service**
+
+Create a service file `/etc/systemd/system/ics.service`:
+
+```ini
+[Unit]
+Description=ICS Cybersecurity System
+After=network.target
+
+[Service]
+User=ubuntu
+WorkingDirectory=/home/ubuntu/ICS
+ExecStart=/home/ubuntu/ICS/venv/bin/python main.py
+Restart=always
+
+[Install]
+WantedBy=multi-user.target
+```
+
+Then run:
+
+```bash
+sudo systemctl daemon-reload
+sudo systemctl enable ics
+sudo systemctl start ics
+sudo systemctl status ics
+```
+
+---
+
+## 10. **Security & Configuration**
+
+- **Edit `config/settings.yaml`** to:
+  - Change the API key
+  - Set `host: "0.0.0.0"` for API and dashboard to allow external access
+  - Set the correct network interface if using live capture
+
+- **Firewall**: Use AWS Security Groups to restrict access to ports 8000/8050.
+
+---
+
+## 11. **Update & Maintenance**
+
+- **To update code**: Pull new code, re-run `pip install -r requirements.txt`, and restart the service.
+- **Logs**: Check `ics.log` or systemd logs (`journalctl -u ics`).
+
+---
+
+## 12. **Uninstall**
+
+```bash
+sudo systemctl stop ics
+sudo systemctl disable ics
+sudo rm /etc/systemd/system/ics.service
+rm -rf ~/ICS
+```
+
+---
+
+## 13. **Troubleshooting**
+
+- **Check logs**: `cat ics.log` or `journalctl -u ics`
+- **Check service**: `sudo systemctl status ics`
+- **Test API**: `curl http://localhost:8000/health`
+
+---
+
+## 14. **Quick Reference**
+
+| Task                | Command/Location                        |
+|---------------------|-----------------------------------------|
+| Start service       | `sudo systemctl start ics`              |
+| Stop service        | `sudo systemctl stop ics`               |
+| Status              | `sudo systemctl status ics`             |
+| Logs                | `cat ics.log` or `journalctl -u ics`    |
+| API                 | `http://<EC2-Public-IP>:8000`           |
+| Dashboard           | `http://<EC2-Public-IP>:8050`           |
+| Config file         | `~/ICS/config/settings.yaml`            |
+
+---
+
+**You do NOT need any Windows-specific scripts or files for Linux.**  
+If you want a ready-to-use `systemd` service file or a bash deployment script, just ask!
