@@ -45,7 +45,7 @@ PyYAML
 SQLAlchemy
 
 # --- Windows Service (optional, for Windows only) ---
-pywin32
+
 
 # --- Testing ---
 pytest
