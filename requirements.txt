@@ -404,3 +404,49 @@ rm -rf ~/ICS
 
 **You do NOT need any Windows-specific scripts or files for Linux.**  
 If you want a ready-to-use `systemd` service file or a bash deployment script, just ask!
+
+---
+
+## ✅ **How to Fix: Use PYTHONPATH**
+
+Run this command from your project root (`~/PLCMOD`):
+
+```bash
+PYTHONPATH=. python scripts/init_database.py
+```
+
+This tells Python to include the current directory (which contains `src/`) in its module search path.
+
+---
+
+## 🛠️ **Permanent Fix: Add to sys.path in the Script**
+
+Add these lines at the very top of `scripts/init_database.py` (before any other imports):
+
+```python
+import sys
+import os
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
+```
+
+This will always add your project root to the Python path, no matter where you run the script from.
+
+---
+
+## **Summary Table**
+
+| Solution                | Command/Change                                 |
+|-------------------------|------------------------------------------------|
+| Temporary (per run)     | `PYTHONPATH=. python scripts/init_database.py` |
+| Permanent (in script)   | Add `sys.path.append(...)` as above            |
+
+---
+
+**Try this first:**
+```bash
+PYTHONPATH=. python scripts/init_database.py
+```
+
+If you want to always be able to run the script from anywhere, add the `sys.path.append(...)` lines to the top of your script.
+
+Let me know if this resolves the issue!
