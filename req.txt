@@ -6,7 +6,7 @@ fastapi
 uvicorn
 flask
 python-dotenv
-pydantic
+pydantic==1.10.12
 PyYAML
 loguru
 schedule
@@ -68,4 +68,4 @@ gunicorn
 setuptools
 wheel
 
-# --- End of requirements --- 
+# --- End of requirements ---
