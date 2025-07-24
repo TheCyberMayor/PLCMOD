@@ -1,6 +1,11 @@
 """
 Model validation and performance evaluation for ICS cybersecurity system.
 """
+import sys
+import os
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
+
+from src.graph_analysis.attack_graph import Node, Edge
 
 import asyncio
 import json

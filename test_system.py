@@ -10,6 +10,11 @@ This script handles all steps for testing the system:
 6. Performance validation
 7. Cleanup
 """
+import sys
+import os
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
+
+from src.graph_analysis.attack_graph import Node, Edge
 
 import asyncio
 import sys
