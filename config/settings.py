@@ -44,6 +44,7 @@ class NetworkConfig(BaseSettings):
 class GraphConfig(BaseSettings):
     """Graph analysis configuration."""
     
+    use_neo4j: bool = Field(default=False, description="Enable Neo4j integration")
     # Neo4j database settings
     neo4j_uri: str = Field(default="bolt://localhost:7687", description="Neo4j database URI")
     neo4j_user: str = Field(default="neo4j", description="Neo4j username")
