@@ -81,6 +81,7 @@ class MLConfig(BaseSettings):
     
     # Model storage
     model_path: str = Field(default="models/", description="Path to store trained models")
+    retrain_interval: int = Field(default=3600, description="Model retraining interval in seconds")
     
     class Config:
         env_prefix = "ML_"
