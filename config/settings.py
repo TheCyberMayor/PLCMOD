@@ -35,6 +35,8 @@ class NetworkConfig(BaseSettings):
     mitre_attack_db: str = Field(default="data/mitre_attack_ics.json",
                                 description="MITRE ATT&CK ICS database path")
     
+    authorized_ips: list = Field(default=[], description="List of authorized IP addresses")
+    
     class Config:
         env_prefix = "NETWORK_"
 
