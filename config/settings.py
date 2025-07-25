@@ -10,7 +10,8 @@ from src.graph_analysis.attack_graph import Node, Edge
 import yaml
 from pathlib import Path
 from typing import Dict, Any, Optional
-from pydantic import BaseSettings, Field
+from pydantic_settings import BaseSettings
+from pydantic import Field
 
 
 class NetworkConfig(BaseSettings):
