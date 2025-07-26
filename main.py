@@ -137,7 +137,7 @@ class ICSCybersecuritySystem:
             # Create web applications
             api_app, dashboard_app = self.create_web_applications()
             
-            # Start web servers
+            # Start only the API server (FastAPI)
             api_config = uvicorn.Config(
                 api_app,
                 host=self.config['api']['host'],
@@ -145,27 +145,15 @@ class ICSCybersecuritySystem:
                 log_level="info"
             )
             
-            dashboard_config = uvicorn.Config(
-                dashboard_app,
-                host=self.config['dashboard']['host'],
-                port=self.config['dashboard']['port'],
-                log_level="info"
-            )
-            
-            # Run servers concurrently
-            api_server = uvicorn.Server(api_config)
-            dashboard_server = uvicorn.Server(dashboard_config)
-            
             self.running = True
             logger.info("ICS Cybersecurity System is running")
             logger.info(f"API available at: http://{self.config['api']['host']}:{self.config['api']['port']}")
             logger.info(f"Dashboard available at: http://{self.config['dashboard']['host']}:{self.config['dashboard']['port']}")
+            logger.info("To start the dashboard, run: python src/dashboard/app.py")
             
-            # Run both servers
-            await asyncio.gather(
-                api_server.serve(),
-                dashboard_server.serve()
-            )
+            # Run only the API server
+            api_server = uvicorn.Server(api_config)
+            await api_server.serve()
             
         except Exception as e:
             logger.error(f"System error: {e}")

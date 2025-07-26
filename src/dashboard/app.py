@@ -766,4 +766,45 @@ def parse_time_range(time_range: str) -> timedelta:
     elif time_range == "7d":
         return timedelta(days=7)
     else:
-        return timedelta(hours=24)  # Default to 24 hours 
+        return timedelta(hours=24)  # Default to 24 hours
+
+
+if __name__ == "__main__":
+    """Run the dashboard as a standalone server."""
+    import yaml
+    from pathlib import Path
+    
+    # Load configuration
+    config_path = Path("config/settings.yaml")
+    if config_path.exists():
+        with open(config_path, 'r') as f:
+            config = yaml.safe_load(f)
+    else:
+        config = {
+            'dashboard': {
+                'host': '0.0.0.0',
+                'port': 8050
+            }
+        }
+    
+    # Create mock components for standalone dashboard
+    mock_components = {
+        'network_monitor': None,
+        'graph_analyzer': None,
+        'risk_scorer': None,
+        'response_system': None,
+        'model_validator': None
+    }
+    
+    # Create and run the dashboard app
+    app = create_dashboard_app(mock_components)
+    
+    print(f"Starting ICS Cybersecurity Dashboard...")
+    print(f"Dashboard will be available at: http://{config['dashboard']['host']}:{config['dashboard']['port']}")
+    print("Press Ctrl+C to stop the server")
+    
+    app.run_server(
+        host=config['dashboard']['host'],
+        port=config['dashboard']['port'],
+        debug=False
+    ) 
