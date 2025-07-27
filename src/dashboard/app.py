@@ -804,7 +804,7 @@ if __name__ == "__main__":
     print(f"Dashboard will be available at: http://{config['dashboard']['host']}:{config['dashboard']['port']}")
     print("Press Ctrl+C to stop the server")
     
-    app.run_server(
+    app.run(
         host=config['dashboard']['host'],
         port=config['dashboard']['port'],
         debug=False
