@@ -3,7 +3,7 @@ Interactive dashboard for ICS cybersecurity monitoring.
 """
 import sys
 import os
-sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '../..')))
 
 from src.graph_analysis.attack_graph import Node, Edge
 
@@ -535,10 +535,11 @@ def register_dashboard_callbacks(app: dash.Dash, components: Dict[str, Any]):
         """Update threat table."""
         try:
             network_monitor = components.get('network_monitor')
-            if not network_monitor:
-                return html.Div("No threat data available", className="text-muted")
-            
-            threats = network_monitor.get_recent_threats(limit=50)
+            if network_monitor is None:
+                # Provide mock data or skip
+                threats = []
+            else:
+                threats = network_monitor.get_recent_threats(limit=50)
             
             # Apply filters
             if threat_level and threat_level != "all":
