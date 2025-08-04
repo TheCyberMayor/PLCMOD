@@ -1,0 +1,40 @@
+{
+  "nodes": [
+    {
+      "id": "plc_001",
+      "type": "plc",
+      "ip_address": "192.168.1.10",
+      "hostname": "PLC-001",
+      "vulnerabilities": [
+        "CVE-2021-1234"
+      ],
+      "criticality": 0.9,
+      "location": "Production Floor A",
+      "description": "Primary PLC"
+    },
+    {
+      "id": "scada_server",
+      "type": "scada",
+      "ip_address": "192.168.1.20",
+      "hostname": "SCADA-SERVER",
+      "vulnerabilities": [
+        "CVE-2021-3456"
+      ],
+      "criticality": 0.95,
+      "location": "Control Room",
+      "description": "Main SCADA server"
+    }
+  ],
+  "edges": [
+    {
+      "source": "scada_server",
+      "target": "plc_001",
+      "protocol": "Modbus",
+      "port": 502,
+      "vulnerability": "CVE-2021-1234",
+      "attack_probability": 0.6,
+      "impact": 0.9,
+      "description": "Modbus communication"
+    }
+  ]
+}

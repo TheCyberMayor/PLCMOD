@@ -14,7 +14,7 @@ schedule
 # --- Data Science & ML ---
 numpy
 pandas
-scikit-learn
+
 xgboost
 scipy
 joblib

@@ -73,7 +73,7 @@ mitigation:
 
 # API configuration
 api:
-  host: "0.0.0.0"
+  host: "127.0.0.1"  # Changed from 0.0.0.0
   port: 8000
   api_key_header: "X-API-Key"
   enable_auth: true
@@ -83,7 +83,7 @@ api:
 
 # Dashboard configuration
 dashboard:
-  host: "0.0.0.0"
+  host: "127.0.0.1"  # Changed from 0.0.0.0
   port: 8050
   theme: "dark"
   refresh_interval: 5000
@@ -106,4 +106,4 @@ validation:
     - "reconnaissance"
     - "initial_access"
     - "execution"
-    - "data_exfiltration" 
+    - "data_exfiltration"

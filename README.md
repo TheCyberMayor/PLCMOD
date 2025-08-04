@@ -150,3 +150,6 @@ For support and questions:
 - Create an issue in the repository
 - Check the documentation in `docs/`
 - Review the configuration examples 
+
+
+EXPORT SKLEARN_ALLOW_DEPRECATED_SKLEARN_PACKAGE_INSTALL=True

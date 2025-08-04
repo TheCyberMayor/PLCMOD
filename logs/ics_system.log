@@ -1,0 +1,204 @@
+2025-08-04 02:39:10.316 | INFO     | __main__:__init__:54 - Initializing ICS Cybersecurity System
+2025-08-04 02:39:10.321 | INFO     | __main__:initialize_components:60 - Initializing Network Monitor
+2025-08-04 02:39:10.342 | INFO     | src.data_collection.network_monitor:__init__:95 - Network monitor initialized for interface eth0
+2025-08-04 02:39:10.342 | INFO     | __main__:initialize_components:64 - Initializing Attack Graph Analyzer
+2025-08-04 02:39:10.346 | INFO     | src.graph_analysis.attack_graph:_init_neo4j:105 - Neo4j connection established
+2025-08-04 02:39:10.348 | INFO     | src.graph_analysis.attack_graph:__init__:95 - Attack graph analyzer initialized
+2025-08-04 02:39:10.348 | INFO     | __main__:initialize_components:68 - Initializing ML Risk Scorer
+2025-08-04 02:39:10.352 | INFO     | src.risk_assessment.ml_risk_scorer:__init__:92 - ML risk scorer initialized
+2025-08-04 02:39:10.352 | INFO     | __main__:initialize_components:72 - Initializing Threat Response System
+2025-08-04 02:39:10.352 | INFO     | src.threat_mitigation.response_system:__init__:83 - Q-Learning agent initialized
+2025-08-04 02:39:10.354 | INFO     | src.threat_mitigation.response_system:__init__:191 - Threat response system initialized
+2025-08-04 02:39:10.354 | INFO     | __main__:initialize_components:76 - Initializing Model Validator
+2025-08-04 02:39:10.354 | INFO     | src.validation.model_validator:__init__:100 - Model validator initialized
+2025-08-04 02:39:10.354 | INFO     | __main__:initialize_components:79 - All components initialized successfully
+2025-08-04 02:39:10.354 | INFO     | src.data_collection.network_monitor:start:320 - Starting network monitoring on interface eth0
+2025-08-04 02:39:10.354 | INFO     | src.graph_analysis.attack_graph:start:474 - Starting attack graph analysis service
+2025-08-04 02:39:14.474 | ERROR    | src.graph_analysis.attack_graph:_load_graph_data:504 - Error loading graph data: Couldn't connect to localhost:7687 (resolved to ('[::1]:7687', '127.0.0.1:7687')):
+Failed to establish connection to ResolvedIPv6Address(('::1', 7687, 0, 0)) (reason [WinError 10061] No connection could be made because the target machine actively refused it)
+Failed to establish connection to ResolvedIPv4Address(('127.0.0.1', 7687)) (reason [WinError 10061] No connection could be made because the target machine actively refused it)
+2025-08-04 02:39:14.474 | INFO     | src.risk_assessment.ml_risk_scorer:start:531 - Starting ML risk scorer service
+2025-08-04 02:39:14.474 | INFO     | src.risk_assessment.ml_risk_scorer:_initialize_models:125 - Initialized random_forest model
+2025-08-04 02:39:14.474 | INFO     | src.risk_assessment.ml_risk_scorer:_initialize_models:125 - Initialized svm model
+2025-08-04 02:39:14.474 | INFO     | src.risk_assessment.ml_risk_scorer:_initialize_models:125 - Initialized xgboost model
+2025-08-04 02:39:14.474 | INFO     | src.threat_mitigation.response_system:start:599 - Threat response system started
+2025-08-04 02:39:14.474 | INFO     | __main__:start_services:100 - All services started successfully
+2025-08-04 02:39:14.515 | INFO     | src.api.main:create_api_app:133 - API application created
+2025-08-04 02:39:14.567 | INFO     | src.dashboard.app:create_dashboard_app:45 - Dashboard application created
+2025-08-04 02:39:14.569 | INFO     | __main__:run:149 - ICS Cybersecurity System is running
+2025-08-04 02:39:14.569 | INFO     | __main__:run:150 - API available at: http://0.0.0.0:8000
+2025-08-04 02:39:14.569 | INFO     | __main__:run:151 - Dashboard available at: http://0.0.0.0:8050
+2025-08-04 02:39:14.569 | INFO     | __main__:run:152 - To start the dashboard, run: python src/dashboard/app.py
+2025-08-04 02:39:14.632 | INFO     | src.data_collection.network_monitor:_capture_packets:335 - Starting packet capture with filter: port 502 or port 44818 or port 20000 or port 47808 or port 102 or port 4840
+2025-08-04 02:39:14.729 | ERROR    | src.data_collection.network_monitor:_capture_packets:347 - Error in packet capture: Interface 'eth0' not found !
+2025-08-04 02:39:14.729 | INFO     | src.graph_analysis.attack_graph:compute_centrality_measures:191 - Computed betweenness centrality for 1 nodes
+2025-08-04 02:39:14.729 | INFO     | src.graph_analysis.attack_graph:compute_centrality_measures:191 - Computed closeness centrality for 1 nodes
+2025-08-04 02:39:14.729 | ERROR    | src.graph_analysis.attack_graph:compute_centrality_measures:194 - Error computing eigenvector centrality: Cannot use scipy.linalg.eig for sparse A with k >= N - 1. Use scipy.linalg.eig(A.toarray()) or reduce k.
+2025-08-04 02:39:14.729 | INFO     | src.graph_analysis.attack_graph:compute_centrality_measures:191 - Computed pagerank centrality for 1 nodes
+2025-08-04 02:39:14.729 | INFO     | src.graph_analysis.attack_graph:detect_attack_vectors:392 - Detected 0 attack vectors
+2025-08-04 02:39:14.743 | INFO     | __main__:stop_services:108 - Stopping all services...
+2025-08-04 02:39:14.743 | INFO     | src.data_collection.network_monitor:stop:397 - Network monitoring stopped
+2025-08-04 02:39:14.743 | INFO     | __main__:stop_services:114 - Stopped network_monitor
+2025-08-04 02:39:14.743 | INFO     | src.graph_analysis.attack_graph:stop:532 - Stopping attack graph analysis service
+2025-08-04 02:39:14.746 | INFO     | __main__:stop_services:114 - Stopped graph_analyzer
+2025-08-04 02:39:14.746 | INFO     | src.risk_assessment.ml_risk_scorer:stop:562 - Stopping ML risk scorer service
+2025-08-04 02:39:14.746 | INFO     | __main__:stop_services:114 - Stopped risk_scorer
+2025-08-04 02:39:14.746 | INFO     | src.threat_mitigation.response_system:stop:630 - Threat response system stopped
+2025-08-04 02:39:14.746 | INFO     | __main__:stop_services:114 - Stopped response_system
+2025-08-04 02:39:14.746 | INFO     | src.validation.model_validator:stop:744 - Model validator service stopped
+2025-08-04 02:39:14.749 | INFO     | __main__:stop_services:114 - Stopped validator
+2025-08-04 02:43:48.431 | INFO     | __main__:__init__:54 - Initializing ICS Cybersecurity System
+2025-08-04 02:43:48.431 | INFO     | __main__:initialize_components:60 - Initializing Network Monitor
+2025-08-04 02:43:48.431 | INFO     | src.data_collection.network_monitor:__init__:95 - Network monitor initialized for interface eth0
+2025-08-04 02:43:48.431 | INFO     | __main__:initialize_components:64 - Initializing Attack Graph Analyzer
+2025-08-04 02:43:48.447 | INFO     | src.graph_analysis.attack_graph:_init_neo4j:105 - Neo4j connection established
+2025-08-04 02:43:48.447 | INFO     | src.graph_analysis.attack_graph:__init__:95 - Attack graph analyzer initialized
+2025-08-04 02:43:48.447 | INFO     | __main__:initialize_components:68 - Initializing ML Risk Scorer
+2025-08-04 02:43:48.447 | INFO     | src.risk_assessment.ml_risk_scorer:__init__:92 - ML risk scorer initialized
+2025-08-04 02:43:48.447 | INFO     | __main__:initialize_components:72 - Initializing Threat Response System
+2025-08-04 02:43:48.447 | INFO     | src.threat_mitigation.response_system:__init__:83 - Q-Learning agent initialized
+2025-08-04 02:43:48.447 | INFO     | src.threat_mitigation.response_system:__init__:191 - Threat response system initialized
+2025-08-04 02:43:48.447 | INFO     | __main__:initialize_components:76 - Initializing Model Validator
+2025-08-04 02:43:48.447 | INFO     | src.validation.model_validator:__init__:100 - Model validator initialized
+2025-08-04 02:43:48.447 | INFO     | __main__:initialize_components:79 - All components initialized successfully
+2025-08-04 02:43:48.447 | INFO     | src.data_collection.network_monitor:start:320 - Starting network monitoring on interface eth0
+2025-08-04 02:43:48.447 | INFO     | src.graph_analysis.attack_graph:start:474 - Starting attack graph analysis service
+2025-08-04 02:43:52.553 | ERROR    | src.graph_analysis.attack_graph:_load_graph_data:504 - Error loading graph data: Couldn't connect to localhost:7687 (resolved to ('[::1]:7687', '127.0.0.1:7687')):
+Failed to establish connection to ResolvedIPv6Address(('::1', 7687, 0, 0)) (reason [WinError 10061] No connection could be made because the target machine actively refused it)
+Failed to establish connection to ResolvedIPv4Address(('127.0.0.1', 7687)) (reason [WinError 10061] No connection could be made because the target machine actively refused it)
+2025-08-04 02:43:52.553 | INFO     | src.risk_assessment.ml_risk_scorer:start:531 - Starting ML risk scorer service
+2025-08-04 02:43:52.553 | INFO     | src.risk_assessment.ml_risk_scorer:_initialize_models:125 - Initialized random_forest model
+2025-08-04 02:43:52.553 | INFO     | src.risk_assessment.ml_risk_scorer:_initialize_models:125 - Initialized svm model
+2025-08-04 02:43:52.553 | INFO     | src.risk_assessment.ml_risk_scorer:_initialize_models:125 - Initialized xgboost model
+2025-08-04 02:43:52.553 | INFO     | src.threat_mitigation.response_system:start:599 - Threat response system started
+2025-08-04 02:43:52.553 | INFO     | __main__:start_services:100 - All services started successfully
+2025-08-04 02:43:52.585 | INFO     | src.api.main:create_api_app:133 - API application created
+2025-08-04 02:43:52.628 | INFO     | src.dashboard.app:create_dashboard_app:45 - Dashboard application created
+2025-08-04 02:43:52.628 | INFO     | __main__:run:149 - ICS Cybersecurity System is running
+2025-08-04 02:43:52.628 | INFO     | __main__:run:150 - API available at: http://0.0.0.0:8000
+2025-08-04 02:43:52.628 | INFO     | __main__:run:151 - Dashboard available at: http://0.0.0.0:8050
+2025-08-04 02:43:52.628 | INFO     | __main__:run:152 - To start the dashboard, run: python src/dashboard/app.py
+2025-08-04 02:43:52.680 | INFO     | src.data_collection.network_monitor:_capture_packets:335 - Starting packet capture with filter: port 502 or port 44818 or port 20000 or port 47808 or port 102 or port 4840
+2025-08-04 02:43:52.774 | ERROR    | src.data_collection.network_monitor:_capture_packets:347 - Error in packet capture: Interface 'eth0' not found !
+2025-08-04 02:43:52.774 | INFO     | src.graph_analysis.attack_graph:compute_centrality_measures:191 - Computed betweenness centrality for 1 nodes
+2025-08-04 02:43:52.774 | INFO     | src.graph_analysis.attack_graph:compute_centrality_measures:191 - Computed closeness centrality for 1 nodes
+2025-08-04 02:43:52.774 | ERROR    | src.graph_analysis.attack_graph:compute_centrality_measures:194 - Error computing eigenvector centrality: Cannot use scipy.linalg.eig for sparse A with k >= N - 1. Use scipy.linalg.eig(A.toarray()) or reduce k.
+2025-08-04 02:43:52.774 | INFO     | src.graph_analysis.attack_graph:compute_centrality_measures:191 - Computed pagerank centrality for 1 nodes
+2025-08-04 02:43:52.774 | INFO     | src.graph_analysis.attack_graph:detect_attack_vectors:392 - Detected 0 attack vectors
+2025-08-04 02:48:52.788 | INFO     | src.graph_analysis.attack_graph:compute_centrality_measures:191 - Computed betweenness centrality for 1 nodes
+2025-08-04 02:48:52.790 | INFO     | src.graph_analysis.attack_graph:compute_centrality_measures:191 - Computed closeness centrality for 1 nodes
+2025-08-04 02:48:52.790 | ERROR    | src.graph_analysis.attack_graph:compute_centrality_measures:194 - Error computing eigenvector centrality: Cannot use scipy.linalg.eig for sparse A with k >= N - 1. Use scipy.linalg.eig(A.toarray()) or reduce k.
+2025-08-04 02:48:52.793 | INFO     | src.graph_analysis.attack_graph:compute_centrality_measures:191 - Computed pagerank centrality for 1 nodes
+2025-08-04 02:48:52.793 | INFO     | src.graph_analysis.attack_graph:detect_attack_vectors:392 - Detected 0 attack vectors
+2025-08-04 02:53:52.802 | INFO     | src.graph_analysis.attack_graph:compute_centrality_measures:191 - Computed betweenness centrality for 1 nodes
+2025-08-04 02:53:52.802 | INFO     | src.graph_analysis.attack_graph:compute_centrality_measures:191 - Computed closeness centrality for 1 nodes
+2025-08-04 02:53:52.804 | ERROR    | src.graph_analysis.attack_graph:compute_centrality_measures:194 - Error computing eigenvector centrality: Cannot use scipy.linalg.eig for sparse A with k >= N - 1. Use scipy.linalg.eig(A.toarray()) or reduce k.
+2025-08-04 02:53:52.806 | INFO     | src.graph_analysis.attack_graph:compute_centrality_measures:191 - Computed pagerank centrality for 1 nodes
+2025-08-04 02:53:52.808 | INFO     | src.graph_analysis.attack_graph:detect_attack_vectors:392 - Detected 0 attack vectors
+2025-08-04 02:58:52.813 | INFO     | src.graph_analysis.attack_graph:compute_centrality_measures:191 - Computed betweenness centrality for 1 nodes
+2025-08-04 02:58:52.813 | INFO     | src.graph_analysis.attack_graph:compute_centrality_measures:191 - Computed closeness centrality for 1 nodes
+2025-08-04 02:58:52.813 | ERROR    | src.graph_analysis.attack_graph:compute_centrality_measures:194 - Error computing eigenvector centrality: Cannot use scipy.linalg.eig for sparse A with k >= N - 1. Use scipy.linalg.eig(A.toarray()) or reduce k.
+2025-08-04 02:58:52.817 | INFO     | src.graph_analysis.attack_graph:compute_centrality_measures:191 - Computed pagerank centrality for 1 nodes
+2025-08-04 02:58:52.817 | INFO     | src.graph_analysis.attack_graph:detect_attack_vectors:392 - Detected 0 attack vectors
+2025-08-04 03:03:52.822 | INFO     | src.graph_analysis.attack_graph:compute_centrality_measures:191 - Computed betweenness centrality for 1 nodes
+2025-08-04 03:03:52.822 | INFO     | src.graph_analysis.attack_graph:compute_centrality_measures:191 - Computed closeness centrality for 1 nodes
+2025-08-04 03:03:52.822 | ERROR    | src.graph_analysis.attack_graph:compute_centrality_measures:194 - Error computing eigenvector centrality: Cannot use scipy.linalg.eig for sparse A with k >= N - 1. Use scipy.linalg.eig(A.toarray()) or reduce k.
+2025-08-04 03:03:52.822 | INFO     | src.graph_analysis.attack_graph:compute_centrality_measures:191 - Computed pagerank centrality for 1 nodes
+2025-08-04 03:03:52.822 | INFO     | src.graph_analysis.attack_graph:detect_attack_vectors:392 - Detected 0 attack vectors
+2025-08-04 03:08:52.856 | INFO     | src.graph_analysis.attack_graph:compute_centrality_measures:191 - Computed betweenness centrality for 1 nodes
+2025-08-04 03:08:52.856 | INFO     | src.graph_analysis.attack_graph:compute_centrality_measures:191 - Computed closeness centrality for 1 nodes
+2025-08-04 03:08:52.859 | ERROR    | src.graph_analysis.attack_graph:compute_centrality_measures:194 - Error computing eigenvector centrality: Cannot use scipy.linalg.eig for sparse A with k >= N - 1. Use scipy.linalg.eig(A.toarray()) or reduce k.
+2025-08-04 03:08:52.870 | INFO     | src.graph_analysis.attack_graph:compute_centrality_measures:191 - Computed pagerank centrality for 1 nodes
+2025-08-04 03:08:52.872 | INFO     | src.graph_analysis.attack_graph:detect_attack_vectors:392 - Detected 0 attack vectors
+2025-08-04 03:13:52.877 | INFO     | src.graph_analysis.attack_graph:compute_centrality_measures:191 - Computed betweenness centrality for 1 nodes
+2025-08-04 03:13:52.879 | INFO     | src.graph_analysis.attack_graph:compute_centrality_measures:191 - Computed closeness centrality for 1 nodes
+2025-08-04 03:13:52.879 | ERROR    | src.graph_analysis.attack_graph:compute_centrality_measures:194 - Error computing eigenvector centrality: Cannot use scipy.linalg.eig for sparse A with k >= N - 1. Use scipy.linalg.eig(A.toarray()) or reduce k.
+2025-08-04 03:13:52.879 | INFO     | src.graph_analysis.attack_graph:compute_centrality_measures:191 - Computed pagerank centrality for 1 nodes
+2025-08-04 03:13:52.879 | INFO     | src.graph_analysis.attack_graph:detect_attack_vectors:392 - Detected 0 attack vectors
+2025-08-04 11:00:30.514 | INFO     | src.graph_analysis.attack_graph:compute_centrality_measures:191 - Computed betweenness centrality for 1 nodes
+2025-08-04 11:00:33.580 | INFO     | src.graph_analysis.attack_graph:compute_centrality_measures:191 - Computed closeness centrality for 1 nodes
+2025-08-04 11:00:34.453 | ERROR    | src.graph_analysis.attack_graph:compute_centrality_measures:194 - Error computing eigenvector centrality: Cannot use scipy.linalg.eig for sparse A with k >= N - 1. Use scipy.linalg.eig(A.toarray()) or reduce k.
+2025-08-04 11:00:36.803 | INFO     | src.graph_analysis.attack_graph:compute_centrality_measures:191 - Computed pagerank centrality for 1 nodes
+2025-08-04 11:00:37.846 | INFO     | src.graph_analysis.attack_graph:detect_attack_vectors:392 - Detected 0 attack vectors
+2025-08-04 11:18:44.322 | INFO     | src.graph_analysis.attack_graph:compute_centrality_measures:191 - Computed betweenness centrality for 1 nodes
+2025-08-04 11:18:44.520 | INFO     | src.graph_analysis.attack_graph:compute_centrality_measures:191 - Computed closeness centrality for 1 nodes
+2025-08-04 11:18:44.637 | ERROR    | src.graph_analysis.attack_graph:compute_centrality_measures:194 - Error computing eigenvector centrality: Cannot use scipy.linalg.eig for sparse A with k >= N - 1. Use scipy.linalg.eig(A.toarray()) or reduce k.
+2025-08-04 11:18:44.763 | INFO     | src.graph_analysis.attack_graph:compute_centrality_measures:191 - Computed pagerank centrality for 1 nodes
+2025-08-04 11:18:44.834 | INFO     | src.graph_analysis.attack_graph:detect_attack_vectors:392 - Detected 0 attack vectors
+2025-08-04 11:44:44.271 | INFO     | src.graph_analysis.attack_graph:compute_centrality_measures:191 - Computed betweenness centrality for 1 nodes
+2025-08-04 11:44:46.365 | INFO     | src.graph_analysis.attack_graph:compute_centrality_measures:191 - Computed closeness centrality for 1 nodes
+2025-08-04 11:44:47.488 | ERROR    | src.graph_analysis.attack_graph:compute_centrality_measures:194 - Error computing eigenvector centrality: Cannot use scipy.linalg.eig for sparse A with k >= N - 1. Use scipy.linalg.eig(A.toarray()) or reduce k.
+2025-08-04 11:44:48.289 | INFO     | src.graph_analysis.attack_graph:compute_centrality_measures:191 - Computed pagerank centrality for 1 nodes
+2025-08-04 11:44:48.383 | INFO     | src.graph_analysis.attack_graph:detect_attack_vectors:392 - Detected 0 attack vectors
+2025-08-04 12:44:15.585 | INFO     | src.graph_analysis.attack_graph:compute_centrality_measures:191 - Computed betweenness centrality for 1 nodes
+2025-08-04 12:44:15.626 | INFO     | src.graph_analysis.attack_graph:compute_centrality_measures:191 - Computed closeness centrality for 1 nodes
+2025-08-04 12:44:15.674 | ERROR    | src.graph_analysis.attack_graph:compute_centrality_measures:194 - Error computing eigenvector centrality: Cannot use scipy.linalg.eig for sparse A with k >= N - 1. Use scipy.linalg.eig(A.toarray()) or reduce k.
+2025-08-04 12:44:15.695 | INFO     | src.graph_analysis.attack_graph:compute_centrality_measures:191 - Computed pagerank centrality for 1 nodes
+2025-08-04 12:44:15.696 | INFO     | src.graph_analysis.attack_graph:detect_attack_vectors:392 - Detected 0 attack vectors
+2025-08-04 12:49:15.729 | INFO     | src.graph_analysis.attack_graph:compute_centrality_measures:191 - Computed betweenness centrality for 1 nodes
+2025-08-04 12:49:15.752 | INFO     | src.graph_analysis.attack_graph:compute_centrality_measures:191 - Computed closeness centrality for 1 nodes
+2025-08-04 12:49:15.783 | ERROR    | src.graph_analysis.attack_graph:compute_centrality_measures:194 - Error computing eigenvector centrality: Cannot use scipy.linalg.eig for sparse A with k >= N - 1. Use scipy.linalg.eig(A.toarray()) or reduce k.
+2025-08-04 12:49:15.809 | INFO     | src.graph_analysis.attack_graph:compute_centrality_measures:191 - Computed pagerank centrality for 1 nodes
+2025-08-04 12:49:15.810 | INFO     | src.graph_analysis.attack_graph:detect_attack_vectors:392 - Detected 0 attack vectors
+2025-08-04 12:54:15.822 | INFO     | src.graph_analysis.attack_graph:compute_centrality_measures:191 - Computed betweenness centrality for 1 nodes
+2025-08-04 12:54:15.827 | INFO     | src.graph_analysis.attack_graph:compute_centrality_measures:191 - Computed closeness centrality for 1 nodes
+2025-08-04 12:54:15.832 | ERROR    | src.graph_analysis.attack_graph:compute_centrality_measures:194 - Error computing eigenvector centrality: Cannot use scipy.linalg.eig for sparse A with k >= N - 1. Use scipy.linalg.eig(A.toarray()) or reduce k.
+2025-08-04 12:54:15.847 | INFO     | src.graph_analysis.attack_graph:compute_centrality_measures:191 - Computed pagerank centrality for 1 nodes
+2025-08-04 12:54:15.851 | INFO     | src.graph_analysis.attack_graph:detect_attack_vectors:392 - Detected 0 attack vectors
+2025-08-04 12:59:15.845 | INFO     | src.graph_analysis.attack_graph:compute_centrality_measures:191 - Computed betweenness centrality for 1 nodes
+2025-08-04 12:59:15.846 | INFO     | src.graph_analysis.attack_graph:compute_centrality_measures:191 - Computed closeness centrality for 1 nodes
+2025-08-04 12:59:15.850 | ERROR    | src.graph_analysis.attack_graph:compute_centrality_measures:194 - Error computing eigenvector centrality: Cannot use scipy.linalg.eig for sparse A with k >= N - 1. Use scipy.linalg.eig(A.toarray()) or reduce k.
+2025-08-04 12:59:15.854 | INFO     | src.graph_analysis.attack_graph:compute_centrality_measures:191 - Computed pagerank centrality for 1 nodes
+2025-08-04 12:59:15.856 | INFO     | src.graph_analysis.attack_graph:detect_attack_vectors:392 - Detected 0 attack vectors
+2025-08-04 13:04:15.861 | INFO     | src.graph_analysis.attack_graph:compute_centrality_measures:191 - Computed betweenness centrality for 1 nodes
+2025-08-04 13:04:15.865 | INFO     | src.graph_analysis.attack_graph:compute_centrality_measures:191 - Computed closeness centrality for 1 nodes
+2025-08-04 13:04:15.929 | ERROR    | src.graph_analysis.attack_graph:compute_centrality_measures:194 - Error computing eigenvector centrality: Cannot use scipy.linalg.eig for sparse A with k >= N - 1. Use scipy.linalg.eig(A.toarray()) or reduce k.
+2025-08-04 13:04:15.941 | INFO     | src.graph_analysis.attack_graph:compute_centrality_measures:191 - Computed pagerank centrality for 1 nodes
+2025-08-04 13:04:15.943 | INFO     | src.graph_analysis.attack_graph:detect_attack_vectors:392 - Detected 0 attack vectors
+2025-08-04 13:09:15.958 | INFO     | src.graph_analysis.attack_graph:compute_centrality_measures:191 - Computed betweenness centrality for 1 nodes
+2025-08-04 13:09:15.959 | INFO     | src.graph_analysis.attack_graph:compute_centrality_measures:191 - Computed closeness centrality for 1 nodes
+2025-08-04 13:09:15.960 | ERROR    | src.graph_analysis.attack_graph:compute_centrality_measures:194 - Error computing eigenvector centrality: Cannot use scipy.linalg.eig for sparse A with k >= N - 1. Use scipy.linalg.eig(A.toarray()) or reduce k.
+2025-08-04 13:09:15.965 | INFO     | src.graph_analysis.attack_graph:compute_centrality_measures:191 - Computed pagerank centrality for 1 nodes
+2025-08-04 13:09:15.966 | INFO     | src.graph_analysis.attack_graph:detect_attack_vectors:392 - Detected 0 attack vectors
+2025-08-04 13:14:15.979 | INFO     | src.graph_analysis.attack_graph:compute_centrality_measures:191 - Computed betweenness centrality for 1 nodes
+2025-08-04 13:14:15.980 | INFO     | src.graph_analysis.attack_graph:compute_centrality_measures:191 - Computed closeness centrality for 1 nodes
+2025-08-04 13:14:15.987 | ERROR    | src.graph_analysis.attack_graph:compute_centrality_measures:194 - Error computing eigenvector centrality: Cannot use scipy.linalg.eig for sparse A with k >= N - 1. Use scipy.linalg.eig(A.toarray()) or reduce k.
+2025-08-04 13:14:16.005 | INFO     | src.graph_analysis.attack_graph:compute_centrality_measures:191 - Computed pagerank centrality for 1 nodes
+2025-08-04 13:14:16.006 | INFO     | src.graph_analysis.attack_graph:detect_attack_vectors:392 - Detected 0 attack vectors
+2025-08-04 13:19:26.299 | INFO     | src.graph_analysis.attack_graph:compute_centrality_measures:191 - Computed betweenness centrality for 1 nodes
+2025-08-04 13:19:26.870 | INFO     | src.graph_analysis.attack_graph:compute_centrality_measures:191 - Computed closeness centrality for 1 nodes
+2025-08-04 13:19:27.526 | ERROR    | src.graph_analysis.attack_graph:compute_centrality_measures:194 - Error computing eigenvector centrality: Cannot use scipy.linalg.eig for sparse A with k >= N - 1. Use scipy.linalg.eig(A.toarray()) or reduce k.
+2025-08-04 13:19:27.964 | INFO     | src.graph_analysis.attack_graph:compute_centrality_measures:191 - Computed pagerank centrality for 1 nodes
+2025-08-04 13:19:28.089 | INFO     | src.graph_analysis.attack_graph:detect_attack_vectors:392 - Detected 0 attack vectors
+2025-08-04 13:24:28.187 | INFO     | src.graph_analysis.attack_graph:compute_centrality_measures:191 - Computed betweenness centrality for 1 nodes
+2025-08-04 13:24:28.211 | INFO     | src.graph_analysis.attack_graph:compute_centrality_measures:191 - Computed closeness centrality for 1 nodes
+2025-08-04 13:24:28.219 | ERROR    | src.graph_analysis.attack_graph:compute_centrality_measures:194 - Error computing eigenvector centrality: Cannot use scipy.linalg.eig for sparse A with k >= N - 1. Use scipy.linalg.eig(A.toarray()) or reduce k.
+2025-08-04 13:24:28.251 | INFO     | src.graph_analysis.attack_graph:compute_centrality_measures:191 - Computed pagerank centrality for 1 nodes
+2025-08-04 13:24:28.251 | INFO     | src.graph_analysis.attack_graph:detect_attack_vectors:392 - Detected 0 attack vectors
+2025-08-04 13:29:28.279 | INFO     | src.graph_analysis.attack_graph:compute_centrality_measures:191 - Computed betweenness centrality for 1 nodes
+2025-08-04 13:29:28.291 | INFO     | src.graph_analysis.attack_graph:compute_centrality_measures:191 - Computed closeness centrality for 1 nodes
+2025-08-04 13:29:28.314 | ERROR    | src.graph_analysis.attack_graph:compute_centrality_measures:194 - Error computing eigenvector centrality: Cannot use scipy.linalg.eig for sparse A with k >= N - 1. Use scipy.linalg.eig(A.toarray()) or reduce k.
+2025-08-04 13:29:28.339 | INFO     | src.graph_analysis.attack_graph:compute_centrality_measures:191 - Computed pagerank centrality for 1 nodes
+2025-08-04 13:29:28.340 | INFO     | src.graph_analysis.attack_graph:detect_attack_vectors:392 - Detected 0 attack vectors
+2025-08-04 13:34:28.357 | INFO     | src.graph_analysis.attack_graph:compute_centrality_measures:191 - Computed betweenness centrality for 1 nodes
+2025-08-04 13:34:28.364 | INFO     | src.graph_analysis.attack_graph:compute_centrality_measures:191 - Computed closeness centrality for 1 nodes
+2025-08-04 13:34:28.383 | ERROR    | src.graph_analysis.attack_graph:compute_centrality_measures:194 - Error computing eigenvector centrality: Cannot use scipy.linalg.eig for sparse A with k >= N - 1. Use scipy.linalg.eig(A.toarray()) or reduce k.
+2025-08-04 13:34:28.391 | INFO     | src.graph_analysis.attack_graph:compute_centrality_measures:191 - Computed pagerank centrality for 1 nodes
+2025-08-04 13:34:28.392 | INFO     | src.graph_analysis.attack_graph:detect_attack_vectors:392 - Detected 0 attack vectors
+2025-08-04 13:39:28.394 | INFO     | src.graph_analysis.attack_graph:compute_centrality_measures:191 - Computed betweenness centrality for 1 nodes
+2025-08-04 13:39:28.399 | INFO     | src.graph_analysis.attack_graph:compute_centrality_measures:191 - Computed closeness centrality for 1 nodes
+2025-08-04 13:39:28.520 | ERROR    | src.graph_analysis.attack_graph:compute_centrality_measures:194 - Error computing eigenvector centrality: Cannot use scipy.linalg.eig for sparse A with k >= N - 1. Use scipy.linalg.eig(A.toarray()) or reduce k.
+2025-08-04 13:39:28.693 | INFO     | src.graph_analysis.attack_graph:compute_centrality_measures:191 - Computed pagerank centrality for 1 nodes
+2025-08-04 13:39:28.782 | INFO     | src.graph_analysis.attack_graph:detect_attack_vectors:392 - Detected 0 attack vectors
+2025-08-04 13:40:10.954 | INFO     | __main__:signal_handler:166 - Received signal 2, shutting down gracefully...
+2025-08-04 13:40:10.958 | INFO     | __main__:stop_services:108 - Stopping all services...
+2025-08-04 13:40:10.966 | INFO     | src.data_collection.network_monitor:stop:397 - Network monitoring stopped
+2025-08-04 13:40:10.966 | INFO     | __main__:stop_services:114 - Stopped network_monitor
+2025-08-04 13:40:10.969 | INFO     | src.graph_analysis.attack_graph:stop:532 - Stopping attack graph analysis service
+2025-08-04 13:40:10.978 | INFO     | __main__:stop_services:114 - Stopped graph_analyzer
+2025-08-04 13:40:10.983 | INFO     | src.risk_assessment.ml_risk_scorer:stop:562 - Stopping ML risk scorer service
+2025-08-04 13:40:10.983 | INFO     | __main__:stop_services:114 - Stopped risk_scorer
+2025-08-04 13:40:10.986 | INFO     | src.threat_mitigation.response_system:stop:630 - Threat response system stopped
+2025-08-04 13:40:10.987 | INFO     | __main__:stop_services:114 - Stopped response_system
+2025-08-04 13:40:10.989 | INFO     | src.validation.model_validator:stop:744 - Model validator service stopped
+2025-08-04 13:40:10.989 | INFO     | __main__:stop_services:114 - Stopped validator

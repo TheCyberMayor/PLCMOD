@@ -137,21 +137,22 @@ class ICSCybersecuritySystem:
             # Create web applications
             api_app, dashboard_app = self.create_web_applications()
             
-            # Start only the API server (FastAPI)
+            # Update API configuration
             api_config = uvicorn.Config(
                 api_app,
                 host=self.config['api']['host'],
                 port=self.config['api']['port'],
-                log_level="info"
+                log_level="info",
+                reload=True  # Enable auto-reload for development
             )
-            
+
+            # Start both API and Dashboard
             self.running = True
             logger.info("ICS Cybersecurity System is running")
-            logger.info(f"API available at: http://{self.config['api']['host']}:{self.config['api']['port']}")
-            logger.info(f"Dashboard available at: http://{self.config['dashboard']['host']}:{self.config['dashboard']['port']}")
-            logger.info("To start the dashboard, run: python src/dashboard/app.py")
+            logger.info(f"API available at: http://127.0.0.1:{self.config['api']['port']}")
+            logger.info(f"Dashboard available at: http://127.0.0.1:{self.config['dashboard']['port']}")
             
-            # Run only the API server
+            # Run API server
             api_server = uvicorn.Server(api_config)
             await api_server.serve()
             
@@ -193,4 +194,4 @@ async def main():
 
 
 if __name__ == "__main__":
-    asyncio.run(main()) 
+    asyncio.run(main())

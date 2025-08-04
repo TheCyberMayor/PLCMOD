@@ -1,0 +1,54 @@
+{
+  "techniques": {
+    "T1595.001": {
+      "name": "Active Scanning: Scanning IP Blocks",
+      "description": "Adversaries may scan IP blocks to identify active hosts",
+      "tactic": "reconnaissance",
+      "platforms": [
+        "ics"
+      ]
+    },
+    "T1078": {
+      "name": "Valid Accounts",
+      "description": "Adversaries may obtain and abuse credentials of existing accounts",
+      "tactic": "initial_access",
+      "platforms": [
+        "ics"
+      ]
+    },
+    "T1059": {
+      "name": "Command and Scripting Interpreter",
+      "description": "Adversaries may abuse command and script interpreters to execute commands",
+      "tactic": "execution",
+      "platforms": [
+        "ics"
+      ]
+    },
+    "T1562.001": {
+      "name": "Impair Defenses: Disable or Modify Tools",
+      "description": "Adversaries may disable security tools to avoid detection",
+      "tactic": "defense_evasion",
+      "platforms": [
+        "ics"
+      ]
+    }
+  },
+  "tactics": {
+    "reconnaissance": {
+      "name": "Reconnaissance",
+      "description": "The adversary is trying to gather information they can use to plan future operations"
+    },
+    "initial_access": {
+      "name": "Initial Access",
+      "description": "The adversary is trying to get into your network"
+    },
+    "execution": {
+      "name": "Execution",
+      "description": "The adversary is trying to run malicious code"
+    },
+    "defense_evasion": {
+      "name": "Defense Evasion",
+      "description": "The adversary is trying to avoid being detected"
+    }
+  }
+}
